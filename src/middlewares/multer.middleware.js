@@ -1,12 +1,13 @@
 import multer from "multer";
 
 const storage  = multer.diskStorage({
-    destination: (req, file, cb) => {
-        console.log('file',file);
-        cb(null, "../../public/temp");
+    destination: function(req, file, cb) {
+        // console.log('file',file);
+        cb(null, "./public/temp");      // path of server file storage
     },
-    filename: (req, file, cb) => {
-        console.log('file',file);
+    filename: function(req, file, cb){
+        // console.log('file',file);
+        // cb(null, file.originalname);
         cb(null, `${Date.now()}-${file.originalname}`);
     }
 

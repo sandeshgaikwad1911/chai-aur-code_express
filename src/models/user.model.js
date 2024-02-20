@@ -24,9 +24,9 @@ const userSchema = new mongoose.Schema({
         trim: true,
         index: true,  //indexing is optional but recommended as it will improve the search performance of data retrieval operations
     },
-    avtar: {
+    avatar: {
         type: String, // cloudinary url
-        required: true,
+        required: [true, 'Please provide avtar image']
     },
     coverImage: {
         type: String, // cloudinary url

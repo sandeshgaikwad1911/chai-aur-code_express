@@ -28,9 +28,10 @@ app.use(express.static("public"))
 app.use(cookieParser());    
 // add and access cookie in user browser.
 
-app.get('/', (req, res, next)=>{
-    return res.send('hello');
-});
+//  import routes
+import userRoutes from './routes/user.routes.js'
+
+app.use('/api/v1/users', userRoutes);
 
 const port = process.env.PORT || 3001;
 
