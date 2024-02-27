@@ -54,6 +54,8 @@ userSchema.pre("save", async function(next){
     if(!this.isModified("password")){
         return next();   
     }
+    // isModified("fieldname") method, check if this field is updating or creating new val.
+    
     this.password = await bcrypt.hash(this.password, 12)
     next();
 })
